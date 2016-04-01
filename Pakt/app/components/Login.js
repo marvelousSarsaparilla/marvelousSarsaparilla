@@ -84,9 +84,7 @@ class Login extends React.Component {
           underlayColor={globalStyles.colors.main} 
         >
           <View style={styles.FBLoginButton}>
-            <Image style={styles.FBLogo} source={require('../assets/img/fbLogo.png')} />
-            <Text style={[styles.FBLoginButtonText, this.state.user ? styles.FBLoginButtonTextLoggedIn : styles.FBLoginButtonTextLoggedOut]}
-              numberOfLines={1}>{text}</Text>
+            <Image style={styles.FBLogo} source={require('../assets/img/logout.png')} />
           </View>
         </TouchableHighlight>
       </View>
@@ -100,8 +98,8 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 50, 
-    width: 100,
+    height: 50,
+    width: 86,
   },
   FBLoginButton: {
     flex: 1,
@@ -110,13 +108,9 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
 
     height: 30,
-    width: 175,
+    width: 10,
     paddingLeft: 4,
-    margin:5,
-
-    borderRadius: 3,
-    borderWidth: 1,
-    borderColor: 'rgb(66,93,174)',
+    margin:2,
 
     shadowColor: "#000000",
     shadowOpacity: 0.8,
@@ -133,19 +127,11 @@ var styles = StyleSheet.create({
     fontSize: 12,
     margin: 2,
   },
-  FBLoginButtonTextLoggedIn: {
-    marginLeft: 5,
-  },
-  FBLoginButtonTextLoggedOut: {
-    marginLeft: 18,
-  },
+
   FBLogo: {
     position: 'absolute',
-    height: 14,
-    width: 14,
-
-    left: 7,
-    top: 7,
+    height: 55,
+    width: 56,
   },
 });
 

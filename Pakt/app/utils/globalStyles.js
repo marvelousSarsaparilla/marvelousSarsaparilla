@@ -1,6 +1,6 @@
 const globalStyles = {
   colors: {
-    main: '#717EC3',
+    main: '#00A79D',
   },
 };
 

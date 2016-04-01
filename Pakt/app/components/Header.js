@@ -17,42 +17,37 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: globalStyles.colors.main,
+    paddingRight: 10,
   },
-   headerItem: {
-    flexDirection: 'row',
-  },
+
    title: {
-    textAlign: 'center',
-    // flex: .8,
-    textAlign: 'right',
-    marginTop: 15,
-    // marginLeft: 140,
-    fontWeight: 'bold',
-    color: 'white',
-    fontSize: 45,
-    fontFamily: 'Optima',
+    flex: .6,
+    marginTop: 20,
+    alignItems: 'flex-end',
   },
+
+   logo: {
+    width:180,
+    height: 51,
+  },
+
    logout: {
-    // flex: .2,
+    flex: .2,
     fontWeight: 'bold',
-    height:100,
-    marginTop: 25,
-    width:200,
-    fontSize: 15,
+    marginTop: 10,
     alignItems: 'flex-end',
   },
 });
 
 const Header = ({ title }) => (
 <View style={styles.container} >
-  <View style={styles.headerItem} >
-    <Text style={styles.title}>{title}</Text>
+  <View style={styles.title}>
+    <Image  style={styles.logo} source={require('../assets/img/pakt_logo_full.png')} />
   </View>
-  <View style={styles.headerItem} >
+
     <View style={styles.logout}>
       <LoginUser/>
     </View>
-  </View>
 </View>
 );
 

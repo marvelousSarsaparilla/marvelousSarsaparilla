@@ -58,10 +58,10 @@ const mapStateToProps = (state) => {
 
 const App = () => (
   <View style={{ flex: 1, backgroundColor: '#F5FCFF' }}>
-    <View style={{ flex: 0.12 }}>
+    <View style={{ flex: 0.13 }}>
       <Header title={'PAKT'} />
     </View>
-    <View style={{ flex: 0.88 }}>
+    <View style={{ flex: 0.87 }}>
       <Router scenes={scenes} />
     </View>
   </View>
