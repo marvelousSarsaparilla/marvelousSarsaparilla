@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
 
 const IndividualPakt = ({ currentPakt, respondtoInvite, accepted, currentUserId, paktPictures, selectedUser, setSelectedUser }) => (
   <View style={styles.container}>
-    <ScrollView style= {styles.ScrollView}>
+    <ScrollView style= {styles.ScrollView} showsVerticalScrollIndicator={false} >
       <Header style={styles.heading} open={currentPakt.open}  win={currentPakt.Pakt_User.win} paktName={currentPakt.name.toUpperCase()}/>
       <Text style={styles.subheading} >{currentPakt.description}</Text>
       <View style={styles.subContainer}>
