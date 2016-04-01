@@ -11,7 +11,6 @@ import React, {
 import LoginUser from '../containers/LoginUser';
 import globalStyles from '../utils/globalStyles';
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
