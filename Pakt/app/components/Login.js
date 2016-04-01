@@ -10,15 +10,17 @@ import React, {
   TouchableHighlight
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import globalStyles from '../utils/globalStyles';
+
 var FBLogin = require('react-native-facebook-login');
 var FBLoginManager = require('NativeModules').FBLoginManager;
 
 class Login extends React.Component {
 
-  getInitialState(){
-    return {
-      user: null,
-    };
+  constructor(props) {
+    super(props); 
+    this.state = {};
+    this.state.user= null;
   }
 
   handleLogin (){
@@ -27,19 +29,19 @@ class Login extends React.Component {
       if (!error) {
         _this.setState({ user : data});
         _this.props.onLogin && _this.props.onLogin();
-        this.props.beginLoginFbUser();
-        this.props.loginFbUser(data.credentials);
+        _this.props.beginLoginFbUser();
+        _this.props.loginFbUser(data.credentials);
       } else {
         console.log(error, data);
       }
     });
   }
 
-  handleLogout(){
+   handleLogout = () => {
     var _this = this;
     FBLoginManager.logout(function(error, data){
       if (!error) {
-        this.props.logoutFbUser();
+        _this.props.logoutFbUser();
         _this.setState({ user : null});
         _this.props.onLogout && _this.props.onLogout();
       } else {
@@ -51,7 +53,7 @@ class Login extends React.Component {
   onPress(){
     this.state.user
       ? this.handleLogout()
-      : this.handleLogin();
+      : this.handleLogin.bind(this)();
 
     this.props.onPress && this.props.onPress();
   }
@@ -66,12 +68,20 @@ class Login extends React.Component {
   }
 
   render() {
-    var text = this.state.user ? "Log out" : "Log in with Facebook";
+    var text = 'Log in';
+    if (this.state.user) {
+      text = 'Log out';
+      //if there's a login found, add the user's object to the redux state
+      this.props.beginLoginFbUser();
+      this.props.loginFbUser(this.state.user.credentials);
+    } 
+
     return (
       <View style={this.props.style}>
         <TouchableHighlight
           style={styles.container}
-          onPress={this.onPress}
+          onPress={this.onPress.bind(this)}
+          underlayColor={globalStyles.colors.main} 
         >
           <View style={styles.FBLoginButton}>
             <Image style={styles.FBLogo} source={require('../assets/img/fbLogo.png')} />
@@ -101,10 +111,9 @@ var styles = StyleSheet.create({
 
     height: 30,
     width: 175,
-    paddingLeft: 2,
+    paddingLeft: 4,
     margin:5,
 
-    // backgroundColor: 'white',
     borderRadius: 3,
     borderWidth: 1,
     borderColor: 'rgb(66,93,174)',
