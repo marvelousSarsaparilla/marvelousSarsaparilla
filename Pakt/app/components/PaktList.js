@@ -13,6 +13,7 @@ import React, {
 
 import PaktListItem from './PaktListItem';
 import Loading from './Loading';
+import globalStyles from '../utils/globalStyles';
 
 const styles = StyleSheet.create({
   container: {
@@ -36,8 +37,6 @@ class PaktList extends Component {
     this.props.listThePakts();
   }
 
-
-
   renderPaktsView() {
     const { pakts, onPaktClick, isRefreshing, onRefresh, currentUserId } = this.props;
     const rows = pakts.map((pakt) => {
@@ -51,7 +50,7 @@ class PaktList extends Component {
             <RefreshControl
               refreshing={isRefreshing}
               onRefresh={onRefresh}
-              tintColor="#00A79D"
+              tintColor={globalStyles.colors.main}
               colors={['#D0D6D6', '#D0D6D6', '#D0D6D6']}
               progressBackgroundColor="#D0D6D6" />
             }>
