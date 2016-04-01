@@ -9,32 +9,37 @@ import React, {
   PropTypes,
 } from 'react-native';
 import LoginUser from '../containers/LoginUser';
+import globalStyles from '../utils/globalStyles';
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#00A79D',
+    backgroundColor: globalStyles.colors.main,
   },
    headerItem: {
-    flex: .5,
     flexDirection: 'row',
   },
    title: {
     textAlign: 'center',
+    // flex: .8,
+    textAlign: 'right',
     marginTop: 15,
-    marginLeft: 20,
+    // marginLeft: 140,
     fontWeight: 'bold',
     color: 'white',
     fontSize: 45,
     fontFamily: 'Optima',
   },
    logout: {
+    // flex: .2,
     fontWeight: 'bold',
     height:100,
     marginTop: 25,
     width:200,
     fontSize: 15,
+    alignItems: 'flex-end',
   },
 });
 

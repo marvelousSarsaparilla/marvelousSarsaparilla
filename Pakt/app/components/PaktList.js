@@ -13,6 +13,8 @@ import React, {
 
 import PaktListItem from './PaktListItem';
 import Loading from './Loading';
+import globalStyles from '../utils/globalStyles';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -35,8 +37,6 @@ class PaktList extends Component {
   componentDidMount() {
     this.props.listThePakts();
   }
-
-
 
   renderPaktsView() {
     const { pakts, onPaktClick, isRefreshing, onRefresh, currentUserId } = this.props;

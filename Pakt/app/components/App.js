@@ -9,6 +9,7 @@ import { Scene, Router, TabBar, Modal, Schema, Actions, Switch } from 'react-nat
 import SendPicture from '../containers/SendPicture';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import globalStyles from '../utils/globalStyles';
 
 import React, {
   AppRegistry,
@@ -23,7 +24,7 @@ import React, {
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: '#00A79D',
+    backgroundColor: globalStyles.colors.main,
   },
   icon: {
     width: 75,
@@ -68,7 +69,7 @@ const App = () => (
 
 const scenes = Actions.create(
   <Scene key="root" component={connect(mapStateToProps, null)(Switch)} tabs={true}>
-    <Scene key="landing" title="Landing" component={Landing} />
+    <Scene hideNavBar="true" key="landing" title="Landing" component={Landing} />
     <Scene hideNavBar="true" key="loading" component={Loading} title="Camera" icon={TabIcon} />
 
     <Scene key="tabbar" tabs={true} default="getPakts" style={styles.tabBar}>
