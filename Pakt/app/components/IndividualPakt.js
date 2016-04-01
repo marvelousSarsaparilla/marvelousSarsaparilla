@@ -148,7 +148,7 @@ class ShowFriends extends React.Component {
   }
   render(){
     const {open, friends, currentPakt, setSelectedUser} = this.props;
-    return open ? this.FriendsView() : <WinnersLosersView friends={friends}/>;
+    return open ? this.FriendsView() : <WinnersLosersView setSelectedUser={setSelectedUser} friends={friends}/>;
   }
 }
 
@@ -165,9 +165,9 @@ class WinnersLosersView extends React.Component {
     return (
       <View>
         <Text style={styles.subtitle}>{'Winners:'.toUpperCase()}</Text>
-        <FriendsRow setSelectedUser={setSelectedUser} numAllowedClicks={1} friends={this.state.winners}/>
+        <FriendsRow setSelectedUser={this.props.setSelectedUser} numAllowedClicks={1} friends={this.state.winners}/>
         <Text style={styles.subtitle}>{'Losers:'.toUpperCase()}</Text>
-        <FriendsRow setSelectedUser={setSelectedUser} numAllowedClicks={1} friends={this.state.losers}/>
+        <FriendsRow setSelectedUser={this.props.setSelectedUser} numAllowedClicks={1} friends={this.state.losers}/>
       </View>
     );  
   };
