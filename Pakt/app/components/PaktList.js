@@ -15,7 +15,6 @@ import PaktListItem from './PaktListItem';
 import Loading from './Loading';
 import globalStyles from '../utils/globalStyles';
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -51,7 +50,7 @@ class PaktList extends Component {
             <RefreshControl
               refreshing={isRefreshing}
               onRefresh={onRefresh}
-              tintColor="#00A79D"
+              tintColor={globalStyles.colors.main}
               colors={['#D0D6D6', '#D0D6D6', '#D0D6D6']}
               progressBackgroundColor="#D0D6D6" />
             }>
